@@ -1,5 +1,7 @@
 # so101-biolab-automation
 
+![so101-biolab-automation — Open lab robotics, from scratch.](.github/social-preview.png)
+
 > **PROTOTYPE** — This project is in early development. Hardware designs are untested, CAD dimensions are approximate, and USB protocols are being reverse-engineered. Not ready for production use. Contributions and feedback welcome.
 
 [![License](https://img.shields.io/badge/license-Apache2.0-58f4c2.svg)](LICENSE)
