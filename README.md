@@ -42,7 +42,21 @@ make render_parts
 make setup_slicer
 make check_prints
 
-# Calibrate arms
+# --- Hardware bringup (one-time) ---
+
+# Install LeRobot deps (PyPI wheels first; falls back to build-from-source if needed)
+make setup_hardware
+
+# Identify USB serial ports for each board (unplug one at a time when prompted)
+make find_port
+
+# Fix /dev/ttyACM* permissions (one-time; replug boards after)
+make install_udev
+
+# Scan servos + patch lerobot for mixed STS3215 firmware
+make bringup PORT=/dev/ttyACM1
+
+# Calibrate arms (move each through its full range when prompted)
 make calibrate_arms
 
 # Teleoperate (teacher-student)
