@@ -18,7 +18,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/), [Semantic Versi
 - Multi-backend pipette architecture: `PipetteProtocol` interface with `DigitalPipette` (DIY) and `ElectronicPipette` (AELAB dPette 7016 / DLAB dPette+) backends
 - `XZGantry` dedicated pipetting arm controller — 2-axis alternative to SO-101, supports Pololu Maestro + Pico W serial protocols
 - `BentoLab` portable PCR thermocycler module — lid, programs, status
-- Config-driven named positions in `configs/arms.yaml` with `move_to_named()`, `execute_sequence()`, `start_teleoperation()`
+- Config-driven named positions in `configs/arms.yaml` with `move_to_named()`, `execute_sequence()`
 - Position sequence pipetting: `pipette_well` uses approach/lower patterns
 - `PlateLayout` config loader and `create_workflow_context()` factory wiring all modules from YAML
 - `--use-case` CLI dispatch in `run_demo.py`
