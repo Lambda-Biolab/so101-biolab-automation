@@ -57,9 +57,9 @@ make install_udev
 make bringup PORT=/dev/ttyACM1
 
 # Calibrate arms (move each through its full range when prompted)
-make calibrate_arms                       # all three (leader + both followers)
-# or one at a time for partial setups:
-# make calibrate_arm_a / calibrate_arm_b / calibrate_leader
+make calibrate_arms                       # full 3-arm setup (leader + arm_a + arm_b)
+# for 2-arm setups (leader + one follower) run only what is connected:
+# make calibrate_arm_a calibrate_leader
 
 # Teleoperate (teacher-student)
 make start_teleop                         # uses cameras by default
