@@ -57,10 +57,14 @@ make install_udev
 make bringup PORT=/dev/ttyACM1
 
 # Calibrate arms (move each through its full range when prompted)
-make calibrate_arms
+make calibrate_arms                       # all three (leader + both followers)
+# or one at a time for partial setups:
+# make calibrate_arm_a / calibrate_arm_b / calibrate_leader
 
 # Teleoperate (teacher-student)
-make start_teleop
+make start_teleop                         # uses cameras by default
+# or headless (no cameras):
+# make start_teleop CAMERAS="{}"
 
 # Record pipetting episodes
 make record_episodes TASK="pipette row A"
