@@ -57,10 +57,14 @@ make install_udev
 make bringup PORT=/dev/ttyACM1
 
 # Calibrate arms (move each through its full range when prompted)
-make calibrate_arms
+make calibrate_arms                       # all three (leader + both followers)
+# or one at a time for partial setups:
+# make calibrate_arm_a / calibrate_arm_b / calibrate_leader
 
 # Teleoperate (teacher-student)
-make start_teleop
+make start_teleop                         # uses cameras by default
+# or headless (no cameras):
+# make start_teleop CAMERAS="{}"
 
 # Record pipetting episodes
 make record_episodes TASK="pipette row A"
@@ -71,6 +75,27 @@ make train_policy
 # Run demo
 make run_demo
 ```
+
+## Live Visualization
+
+`make start_teleop` and `make record_episodes` open [Rerun.io](https://rerun.io)
+automatically (via `--display_data=true`).
+
+<details>
+<summary>Rerun.io live teleop view — click to expand</summary>
+
+![Rerun.io live teleop view](assets/images/screenshot_rerun.io_so101.png)
+
+- **Top panel** — time-series of commanded `action.*.pos` vs observed `observation.*.pos` for each joint (shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper)
+- **Bottom panel** — observation streams aligned to the action timeline
+- **Right panel** — recording metadata (ID, app, timestamps)
+- **Left panel** — recording list + blueprint
+
+Useful for verifying leader→follower tracking lag, joint-range coverage during recording, and gripper actuation timing.
+
+</details>
+
+For a separate live 3D arm + camera view (Foxglove), run `make start_foxglove`.
 
 ## Architecture
 
