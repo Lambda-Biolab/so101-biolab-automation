@@ -6,6 +6,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/), [Semantic Versi
 
 ### Added
 
+- **Hardware bringup ergonomics for partial setups** (PR #6):
+  - Per-arm calibrate targets `calibrate_arm_a`, `calibrate_arm_b`, `calibrate_leader` — 2-arm setups can calibrate only what is connected (Makefile)
+  - `CAMERAS` variable so `start_teleop` / `record_episodes` can run headless: `make start_teleop CAMERAS="{}"` (Makefile)
+  - Hardware bringup section in README Quick Start: `setup_hardware → find_port → install_udev → bringup → calibrate_arms`
+- **Live Visualization section in README** (PR #9): collapsible Rerun.io screenshot under `<details>` with panel-level annotations (`assets/images/screenshot_rerun.io_so101.png`)
+- **Tracking issues for live viz validation**: #8 (Rerun.io camera streams + recording roundtrip — joint streams confirmed working), #7 (Foxglove local + remote — entirely unvalidated). Makefile targets cross-referenced via `TODO(#7)` / `TODO(#8)` comments.
 - **Prusa MK4 slicer profiles** (4 new `.ini` files under `app/hardware/slicer/profiles/`): `prusa_mk4_pla_02mm` (production PLA/PLA+), `prusa_mk4_pla_prototype` (fast 0.3mm fit-check), `prusa_mk4_pla_prototype_supports` (with auto-supports), `prusa_mk4_tpu_02mm` (TPU 95A)
 - **PrusaLink API operations reference** (`docs/hardware/prusa-mk4-ops.md`): endpoint catalog, digest auth, upload + print-after-upload curl examples, CAD-to-print pipeline
 - **dPette+ 3D scan reference data**: `hardware/scans/dpette/0410_02_mesh.{ply,stl}` (1:1 mm Revopoint scan) + `hardware/scans/dpette/README.md` (provenance, scale, intended use)
@@ -18,7 +24,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/), [Semantic Versi
 - Multi-backend pipette architecture: `PipetteProtocol` interface with `DigitalPipette` (DIY) and `ElectronicPipette` (AELAB dPette 7016 / DLAB dPette+) backends
 - `XZGantry` dedicated pipetting arm controller — 2-axis alternative to SO-101, supports Pololu Maestro + Pico W serial protocols
 - `BentoLab` portable PCR thermocycler module — lid, programs, status
-- Config-driven named positions in `configs/arms.yaml` with `move_to_named()`, `execute_sequence()`, `start_teleoperation()`
+- Config-driven named positions in `configs/arms.yaml` with `move_to_named()`, `execute_sequence()`
 - Position sequence pipetting: `pipette_well` uses approach/lower patterns
 - `PlateLayout` config loader and `create_workflow_context()` factory wiring all modules from YAML
 - `--use-case` CLI dispatch in `run_demo.py`
@@ -32,6 +38,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/), [Semantic Versi
 
 ### Changed
 
+- **`setup_hardware` Makefile target** (PR #6): tries PyPI wheels first via `uv sync --group lerobot --group foxglove`; falls back to `setup_hardware_deps` (sudo system build deps) only if wheel install fails. Removes blanket sudo prompt on first install.
+- **`lerobot-*` CLIs invoked via `uv run`** (PR #6): `find_port`, `calibrate_arm_*`, `start_teleop`, `record_episodes`, `train_policy` no longer require manual `source .venv/bin/activate` (fixes `lerobot-find-port: command not found`)
+- **`make bringup` output** (PR #6): prints pre-flight steps (`find_port`, `install_udev`, port env vars) alongside the existing post-step next-actions
 - **Code / assets split**: generated STL + SVG outputs moved from `app/hardware/{stl,svg}/` to top-level `hardware/{stl,svg}/`. Code (CAD scripts, `render.py`, `slicer/`, `parts.json`) stays under `app/hardware/`. New top-level `hardware/scans/` for reference 3D scan data. `render.py`, `slicer/validate.py`, `cad/util/export.py`, `tests/_paths.py` all updated to resolve asset paths via a new `ASSETS_DIR` anchor.
 - `app/hardware/README.md` restructured: removed duplicated Parts Table (→ points at `parts.json` as single source of truth + `jq` query examples) and duplicated layout description (→ points at `docs/architecture.md`). Added dPette+ 8-ch Mount + dPette single-channel Mount + Scan Reference Data assembly sections, Prusa MK4 slicer profile catalog.
 - `parts.json` `notes` fields trimmed to short descriptive labels — provenance prose moved to commit history per DRY.
