@@ -83,7 +83,7 @@ test_order_processor_validates_items()
 
 ```bash
 make test              # All tests
-make test_rerun        # Rerun failed tests (fast iteration)
+make retest           # Rerun failed tests (fast iteration)
 make validate          # Full pre-commit validation
 pytest tests/ -v       # Verbose
 pytest -k test_user_   # Filter by name
