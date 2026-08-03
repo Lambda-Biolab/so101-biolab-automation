@@ -100,7 +100,7 @@ Every hardware-dependent module gracefully degrades when its dependency is unava
 | bento_lab.py | `ImportError` on `serial` | State (lid, program) tracked in memory; serial commands are no-ops |
 | camera.py | `ImportError` on `cv2` | `start()` returns; `get_frames()` returns `{}` |
 
-This allows the full workflow to run end-to-end without any hardware attached. Run `make run_tests` to verify.
+This allows the full workflow to run end-to-end without any hardware attached. Run `make test` to verify.
 
 ## Key Design Decisions
 
