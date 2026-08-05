@@ -61,6 +61,8 @@ exclude = [
     "^https://www\\.hardware-x\\.com",
     # Reddit — 403 to bots
     "^https://www\\.reddit\\.com",
+    # ScienceDirect — 403 bot protection (every SD link 403s automated checkers)
+    "^https://www\\.sciencedirect\\.com",
     # Yaskawa/Motoman — 403 bot protection
     "^https://knowledge\\.motoman\\.com",
     # Feetech — TLS handshake failure in CI
