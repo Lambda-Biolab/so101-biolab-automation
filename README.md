@@ -5,7 +5,6 @@
 [![License](https://img.shields.io/badge/license-Apache2.0-58f4c2.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-0.2.0-58f4c2.svg)
 [![CodeQL](https://github.com/qte77/so101-biolab-automation/actions/workflows/codeql.yaml/badge.svg)](https://github.com/qte77/so101-biolab-automation/actions/workflows/codeql.yaml)
-[![CodeFactor](https://www.codefactor.io/repository/github/qte77/so101-biolab-automation/badge)](https://www.codefactor.io/repository/github/qte77/so101-biolab-automation)
 [![ruff](https://github.com/qte77/so101-biolab-automation/actions/workflows/ruff.yaml/badge.svg)](https://github.com/qte77/so101-biolab-automation/actions/workflows/ruff.yaml)
 [![pytest](https://github.com/qte77/so101-biolab-automation/actions/workflows/pytest.yaml/badge.svg)](https://github.com/qte77/so101-biolab-automation/actions/workflows/pytest.yaml)
 [![Link Checker](https://github.com/qte77/so101-biolab-automation/actions/workflows/lint-md-links.yml/badge.svg)](https://github.com/qte77/so101-biolab-automation/actions/workflows/lint-md-links.yml)
