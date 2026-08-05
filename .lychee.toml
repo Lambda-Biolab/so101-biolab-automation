@@ -5,64 +5,14 @@ accept = [200, 201, 204, 429]
 timeout = 30
 max_retries = 2
 
-# Exclude URLs that return 401/403/302 to bots but work in browsers.
-# Grouped by reason. All verified manually on 2026-03-27.
 exclude = [
-    # Shields.io badges — rate-limited, transient 429/503
     "^https://img\\.shields\\.io",
-    # GitHub special pages — redirect to login
     "^https://github\\.com/codespaces/new",
     "^https://vscode\\.dev",
-    # Code quality services — require auth
-    "^https://www\\.codefactor\\.io",
-    # Flat repo viewers — 401 to bots
-    "^https://uithub\\.com",
-    "^https://gittodoc\\.com",
-    # Vendor/commerce sites — 403 bot protection or unstable product URLs
-    "^https://shop\\.prusa3d\\.com",
-    "^https://www\\.revopoint3d\\.com",
-    "^https://www\\.alibaba\\.com",
-    "^https://www\\.aliexpress\\.com",
-    "^https://www\\.seeedstudio\\.com",
-    "^https://wiki\\.seeedstudio\\.com",
-    "^https://www\\.waveshare\\.com",
-    "^https://www\\.actuonix\\.com",
-    "^https://www\\.partabot\\.com",
-    "^https://www\\.wowrobo\\.com",
-    "^https://store\\.arduino\\.cc",
-    "^https://www\\.nvidia\\.com",
-    "^https://www\\.raspberrypi\\.com",
-    # Maker community sites — 403 bot protection
-    "^https://www\\.thingiverse\\.com",
-    "^https://makerworld\\.com",
-    "^https://www\\.printables\\.com",
-    "^https://grabcad\\.com",
-    # Academic/university sites — 403/timeout to bots
-    "^https://www\\.zmb\\.uzh\\.ch",
-    "^https://www\\.mdpi\\.com",
-    "^https://techxplore\\.com",
     "^https://doi\\.org",
     "^https://www\\.biorxiv\\.org",
     "^https://huggingface\\.co",
-    "^https://goldberg\\.berkeley\\.edu",
-    "^https://pubs\\.rsc\\.org",
     "^https://en\\.wikipedia\\.org",
-    # Reference sites — timeout in CI
-    "^https://keepachangelog\\.com",
-    "^https://semver\\.org",
-    # OpenBuilds — 423 Locked to bots
-    "^https://us\\.openbuilds\\.com",
-    # Autoprotocol — expired SSL (dead project)
-    "^https://www\\.autoprotocol\\.org",
-    # Publisher sites — 403 bot protection
-    "^https://3dprintingindustry\\.com",
-    "^https://journals\\.sagepub\\.com",
-    "^https://pubs\\.acs\\.org",
-    "^https://www\\.hardware-x\\.com",
-    # Reddit — 403 to bots
-    "^https://www\\.reddit\\.com",
-    # Yaskawa/Motoman — 403 bot protection
-    "^https://knowledge\\.motoman\\.com",
-    # Feetech — TLS handshake failure in CI
-    "^https://www\\.feetechrc\\.com",
+    "^https://hub\\.docker\\.com",
+    "^https://pypi\\.org",
 ]
