@@ -216,7 +216,7 @@ pipettes, currently in stub mode pending protocol reverse engineering.
 | SciNote API | <https://www.scinote.net/product/integrations-and-api/> |
 | SiLA 2 standard | <https://sila-standard.com/standards/> |
 | sila2 (PyPI) | <https://pypi.org/project/sila2/> |
-| SiLA Python (UniteLabs, GitLab) | <https://sila2.gitlab.io/sila_python/> |
+| SiLA Python (UniteLabs, GitLab) | <https://gitlab.com/SiLA2/sila_python> |
 | Autoprotocol | <https://www.autoprotocol.org/> |
 | autoprotocol-python | <https://github.com/autoprotocol/autoprotocol-python> |
 | PyLabRobot (GitHub) | <https://github.com/PyLabRobot/pylabrobot> |
